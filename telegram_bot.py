@@ -78,9 +78,11 @@ def ccy_en(call):
     chat_id = call.message.chat.id
     if call.data in buttons.lis_ccy_en:
         whole = buttons.info_about_ccy_en(call.data)
+        bot.delete_message(chat_id= chat_id, message_id=call.message.message_id)
         bot.send_message(chat_id, whole, reply_markup=buttons.menu_en())
     else:
         whole = buttons.info_about_ccy_ru(call.data)
+        bot.delete_message(chat_id = chat_id,message_id=call.message.message_id)
         bot.send_message(chat_id, whole)
 
 
